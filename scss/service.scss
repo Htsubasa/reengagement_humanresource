@@ -41,7 +41,8 @@ $sp-second: 425px;  // スマホ
     padding-left: 34px;
     height: 76px;
     line-height: 76px;
-    width: 880px;
+    max-width: 880px;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 34px;
     font-weight: 900;
@@ -54,12 +55,18 @@ body{
   font-family: 'Noto Sans JP', sans-serif;
   color: #222222;
 
+  
   header{
     .header_wrap{
-      max-width: 1060px;
-      width: 100%;
+      max-width: 1500px;
+      width: 95%;
       margin: 0 auto;
       padding: 32px 0 31px ;
+
+      @include pc{
+        max-width: 1024px;
+        width: 95%;
+      }
 
       .header_block{
         display: flex;
@@ -67,12 +74,18 @@ body{
     
       .header_logo{
         display: flex;
+
         img{
           width: 70px;
         }/*img*/
 
         h1{
           font-size: 34px;
+
+          @include pc{
+            font-size: 30px;
+          }
+
           .header_logo_sub{
             display: block;
             font-size: 15px;
@@ -90,29 +103,54 @@ body{
           text-align: center;
           padding-right: 24.4px;
           border-right: 1px solid #6B7483;
+          font-size: 18px;
+
+
+          @include pc{
+            padding-right: 12px;
+            font-size: 14px;
+          }
+  
         }
 
         .header_tel{
           padding-left: 25.6px;
           margin-right: 23px;
+          font-size: 20px;
 
-          p{
+          @include pc{
+            display: none;
+          }
+
+          .area{
+            font-size: 18px;
+
             
             span{
               margin-left: 12px;
               font-family: 'Oswald', sans-serif;
               font-weight: 500;
+              font-size: 20px;
+
               img{
-                width: 13px;
-              }
-            }
-          }
+                width: 19px;
+                height: 18px;
+                margin-right: 2px;
+              }/*img*/
+            }/*span*/
+          }/*area*/
+
 
         }
 
         .btn{
           width: 218px;
           margin: 0 auto;
+
+          @include pc{
+            margin-left: 10px;
+            width: 200px;
+          }
 
           @include tab{
               width: 250px;
@@ -156,6 +194,12 @@ body{
         display: flex;
         justify-content: center;
 
+        @include pc{
+          margin: 0 auto;
+          flex-wrap: wrap;
+          width: 650px;
+        }
+
         li{
           border-right: 1px solid #222222;
           color: #222222;
@@ -173,6 +217,11 @@ body{
           }
 
         }/*li*/
+
+        li:last-child{
+          border-right: none;
+        }/*last-child*/
+
       }/*ul*/
     }/*nav*/
 
@@ -181,7 +230,7 @@ body{
 
   .mainvisual{
     background-image: url(../img/service/mv-mainvisual.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
     width: 100%;
@@ -190,7 +239,7 @@ body{
 
     &_wrap{
       background-image: url(../img/service/mv-background.png);
-      background-size: contain;  
+      background-size: cover;  
       background-repeat: no-repeat;
       height: 45vw;
       width: 100%;
@@ -271,6 +320,9 @@ body{
 
 
   .content{
+    margin-right: 40px;
+    margin-left: 40px;
+
       &_box{
           max-width: 1200px;
           width: 100%;
@@ -278,6 +330,10 @@ body{
           padding: 94px 160px 134px 160px;
           box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
           border-radius: 41px;
+
+          @include pc{
+            padding: 94px 90px 134px 90px;
+          }
   
 
           h2{
@@ -294,11 +350,16 @@ body{
                   padding-left: 48px;
                   padding-top: 42px;
                   padding-bottom: 39px;
+                  padding-right: 25px;
 
                   li{
                       list-style: none;
                       font-size: 22px;
                       line-height: 2.5;
+
+                      @include pc{
+                        font-size: 20px;
+                      }
 
                       img{
                           margin-right: 13px;
@@ -315,26 +376,57 @@ body{
               display: flex;
               margin: 0 auto;
 
+              @include pc{
+                max-width: 734px;
+                width: 100%;
+              }
+
             }
             &_block{
               display: flex;
               justify-content: center;
 
+              @include pc{
+                display: block;
+
+              }
+
               .example_box{
                 display: flex;
+
+                @include pc{
+                  justify-content: center;
+                  margin-top: 50px;
+                }
 
                 #female_pic{
                   margin-right: 20px;
                   margin-left: 38px;
+
+                  @include pc{
+                    margin-left: 32px;
+                    width: 120px;
+                    height: 360px;
+                  }/*pc*/
+
                 }
 
                 #male_pic{
                   margin-left: 30px;
                   margin-right: 42px;
+
+                  @include pc{
+                    margin-right: 38px;
+                    width: 120px;
+                    height: 360px;
+                  }/*pc*/
+
+
                 }
 
                 .profile_block{
                   margin-top: 34px;
+
                   .name{
                     color: #989898;
                     font-size: 15px;
@@ -373,6 +465,10 @@ body{
                     width: 266px;
                     letter-spacing: 0.375px;
                     line-height: 1.8;
+
+                    @include pc{
+                    }
+
                   }/*text*/
 
                 }/*profile*/
@@ -488,6 +584,13 @@ body{
                 font-size: 16px;
                 line-height: 1.8;
               }
+
+              img{
+                @include pc{
+                  width: 250px;
+                  margin-left: 60px;
+                }
+              }
           }
 
           .free_class_text{
@@ -498,8 +601,14 @@ body{
           .consulting_flow{
             display: flex;
             margin-top: 28px;
+            width: 100%;
+
             &_box{
               text-align: center;
+
+              @include pc{
+                width: 70%;
+              }
 
               h3{
                 color: #F79E46;
@@ -509,11 +618,18 @@ body{
               #consulting_flow_pic{
                 margin-top: 22px ;
                 margin-bottom: 30px;
+
+              @include pc{
+                width: 70%;
+              }
+
+
               }/*consulting_flow_pic*/
 
               .consulting_flow_text{
                 font-weight: 500;
                 line-height: 1.88;
+                font-size: 17px;
               }
 
               .free_block{
@@ -526,6 +642,10 @@ body{
                   font-weight: bold;
                   margin-bottom: 16px;
                 }/*title*/
+
+                p{
+                  font-size: 14px;
+                }
 
 
 
@@ -541,28 +661,54 @@ body{
   }/*content*/
 
 
-.contact_wrap{
+
+  .contact_wrap{
     margin-bottom: 94px;
     margin-top: 109px;
+
+    @include sp{
+      margin-bottom: 70px;
+      margin-top: 90px;
+    }
 
     .contact_title{
       font-size: 26px;
       margin-bottom: 36px;
       text-align: center;
+
+      @include tab{
+        font-size: 22px;
+      }/*tab*/
+
+      @include sp{
+        font-size: 20px;
+      }
+
+      @include sp-second(){
+        font-size: 18px;
+      }
+
     }
 
     .btn{
         width: 708px;
         margin: 0 auto;
         height: 82px;
+  
 
         @include tab{
-            width: 250px;
+          max-width: 700px;
+          width: 85%;
+          height: auto;
         }
 
         @include sp{
-            margin: 0 auto;
-            width: 99%;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        @include sp-second(){
+          width: 280px;
         }
 
         a{
@@ -578,11 +724,24 @@ body{
             line-height: 82px;
             height: 82px;
 
-            
-            @include sp{
-                padding: 20px 0px;
+            @include tab{
+              font-size: 22px;
+              height: 75px;
+              line-height: 75px;
             }
 
+            @include sp{
+              font-size: 20px;
+              height: 65px;
+              line-height: 65px;
+            }
+
+            @include sp-second(){
+              font-size: 14px;
+              height: 60px;
+              line-height:60px;
+            }
+         
         }/*a*/
     }/*btn*/
 
@@ -606,11 +765,22 @@ body{
         justify-content: center;
         margin-top: 13px;
 
+        @include sp{
+          display: block;
+          margin-right: 0px;
+          text-align: center;
+          padding-left: 0px;
+        }
+
         p{
             color: #F79E46;
             letter-spacing: 2.6px;
             font-weight: bold;
             font-size: 26px;
+
+            @include tab{
+              font-size: 20px;
+            }
 
           .number{
             margin-left: 12px;
@@ -620,10 +790,23 @@ body{
             align-items: center;
             font-size: 28px;
 
+
+            @include tab{
+              font-size: 22px;
+            }
+
             img{
               width: 18px;
               margin-left: 17.4px;
               margin-right: 4px;
+
+              @include tab{
+                margin-left: 8px;
+                margin-right: 4px;
+                width: 14px;
+                }
+
+
             }/*img*/
 
           }/*span*/
@@ -632,11 +815,30 @@ body{
 
       #shinjuku{
           margin-right: 18px;
-      }
+
+
+          @include tab{
+            margin-right: 12px;
+          }
+
+          @include sp{
+            margin-right: 0px;
+          }
+      }/*shinjuku*/
 
       #yokohama{
         margin-left: 18px;
-    }
+
+        @include tab{
+          margin-right: 12px;
+        }
+
+        @include sp{
+          margin: 0 auto;
+        }
+
+
+    }/*yokohama*/
 
 
 
@@ -657,11 +859,35 @@ body{
 
       @include pc{
         padding-right:20px;
-        padding-left: 20px;
+        padding-left: 0px;
       }
+
+      @include sp{
+        display: block;
+        padding-right:0px;
+        padding-left: 0px;
+        width: 300px;
+      }
+
+      @include sp{
+        padding-top: 40px;
+        padding-bottom: 60px;
+      }
+
+
 
       .footer_nav{
         ul{
+
+          @include tab{
+            margin-left: 15px;
+          }
+
+          @include sp{
+            margin-top: 10px;
+          }
+
+        
           .nav_top_title{
             font-weight: bold;
             margin-bottom: 10px;
@@ -684,6 +910,7 @@ body{
               font-size: 14px;
               margin-top: 14px;
             }
+
           }/*top_title*/
 
           li{
@@ -712,9 +939,7 @@ body{
 
         }
       }
-
     }/*wrap*/
   }/*footer*/
-
 }/*body*/
 }

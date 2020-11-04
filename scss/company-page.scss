@@ -55,10 +55,15 @@ body{
 
   header{
     .header_wrap{
-      max-width: 1060px;
-      width: 100%;
+      max-width: 1500px;
+      width: 95%;
       margin: 0 auto;
       padding: 32px 0 31px ;
+
+      @include pc{
+        max-width: 1024px;
+        width: 95%;
+      }
 
       .header_block{
         display: flex;
@@ -66,12 +71,18 @@ body{
     
       .header_logo{
         display: flex;
+
         img{
           width: 70px;
         }/*img*/
 
         h1{
           font-size: 34px;
+
+          @include pc{
+            font-size: 30px;
+          }
+
           .header_logo_sub{
             display: block;
             font-size: 15px;
@@ -89,29 +100,54 @@ body{
           text-align: center;
           padding-right: 24.4px;
           border-right: 1px solid #6B7483;
+          font-size: 18px;
+
+
+          @include pc{
+            padding-right: 12px;
+            font-size: 14px;
+          }
+  
         }
 
         .header_tel{
           padding-left: 25.6px;
           margin-right: 23px;
+          font-size: 20px;
 
-          p{
+          @include pc{
+            display: none;
+          }
+
+          .area{
+            font-size: 18px;
+
             
             span{
               margin-left: 12px;
               font-family: 'Oswald', sans-serif;
               font-weight: 500;
+              font-size: 20px;
+
               img{
-                width: 13px;
-              }
-            }
-          }
+                width: 19px;
+                height: 18px;
+                margin-right: 2px;
+              }/*img*/
+            }/*span*/
+          }/*area*/
+
 
         }
 
         .btn{
           width: 218px;
           margin: 0 auto;
+
+          @include pc{
+            margin-left: 10px;
+            width: 200px;
+          }
 
           @include tab{
               width: 250px;
@@ -155,9 +191,14 @@ body{
         display: flex;
         justify-content: center;
 
+        @include pc{
+          margin: 0 auto;
+          flex-wrap: wrap;
+          width: 650px;
+        }
+
         li{
           border-right: 1px solid #222222;
-          color: #222222;
           list-style: none;
           -webkit-transform: skewX(150deg);
           -moz-transform: skewX(150deg);
@@ -166,12 +207,19 @@ body{
           a{
             padding: 0 18px;
             display:block;
+            color: #222222;
             transform: skewX(-150deg);
             font-size: 18px;
             font-weight: bold;
+            letter-spacing: 0.9px;
           }
 
         }/*li*/
+
+        li:last-child{
+          border-right: none;
+        }/*last-child*/
+
       }/*ul*/
     }/*nav*/
 
@@ -179,7 +227,7 @@ body{
   }/*header*/
 
   .mainvisual{
-    background-image: url(../img/service/mv-mainvisual.png);
+    background-image: url(../img/common/mainvisual-2.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 45vw;
@@ -251,18 +299,23 @@ body{
                       padding: 35px 0 35px 50px;
                       width: 256px;
                       text-align: left;
+                      letter-spacing: 2.6px;
                   }
 
                   td{
                     background-color: #F2F2F2;
                     padding: 39px 0 36px 47px;
                     font-size: 22px;
+                    line-height: 2.27;
+                    letter-spacing: 2.2px;
+
                 }
               }/*tr*/
           }/*company_table*/
 
           .text{
-              line-height: 1.8;
+              line-height: 1.875;
+              letter-spacing: 0.4px;
           }/*text*/
 
           .group_table{
@@ -332,28 +385,53 @@ body{
   }/*content*/
 
 
-.contact_wrap{
+  .contact_wrap{
     margin-bottom: 94px;
     margin-top: 109px;
+
+    @include sp{
+      margin-bottom: 70px;
+      margin-top: 90px;
+    }
 
     .contact_title{
       font-size: 26px;
       margin-bottom: 36px;
       text-align: center;
+
+      @include tab{
+        font-size: 22px;
+      }/*tab*/
+
+      @include sp{
+        font-size: 20px;
+      }
+
+      @include sp-second(){
+        font-size: 18px;
+      }
+
     }
 
     .btn{
         width: 708px;
         margin: 0 auto;
         height: 82px;
+  
 
         @include tab{
-            width: 250px;
+          max-width: 700px;
+          width: 85%;
+          height: auto;
         }
 
         @include sp{
-            margin: 0 auto;
-            width: 99%;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        @include sp-second(){
+          width: 280px;
         }
 
         a{
@@ -369,11 +447,24 @@ body{
             line-height: 82px;
             height: 82px;
 
-            
-            @include sp{
-                padding: 20px 0px;
+            @include tab{
+              font-size: 22px;
+              height: 75px;
+              line-height: 75px;
             }
 
+            @include sp{
+              font-size: 20px;
+              height: 65px;
+              line-height: 65px;
+            }
+
+            @include sp-second(){
+              font-size: 14px;
+              height: 60px;
+              line-height:60px;
+            }
+         
         }/*a*/
     }/*btn*/
 
@@ -397,11 +488,22 @@ body{
         justify-content: center;
         margin-top: 13px;
 
+        @include sp{
+          display: block;
+          margin-right: 0px;
+          text-align: center;
+          padding-left: 0px;
+        }
+
         p{
             color: #F79E46;
             letter-spacing: 2.6px;
             font-weight: bold;
             font-size: 26px;
+
+            @include tab{
+              font-size: 20px;
+            }
 
           .number{
             margin-left: 12px;
@@ -411,10 +513,23 @@ body{
             align-items: center;
             font-size: 28px;
 
+
+            @include tab{
+              font-size: 22px;
+            }
+
             img{
               width: 18px;
               margin-left: 17.4px;
               margin-right: 4px;
+
+              @include tab{
+                margin-left: 8px;
+                margin-right: 4px;
+                width: 14px;
+                }
+
+
             }/*img*/
 
           }/*span*/
@@ -423,11 +538,30 @@ body{
 
       #shinjuku{
           margin-right: 18px;
-      }
+
+
+          @include tab{
+            margin-right: 12px;
+          }
+
+          @include sp{
+            margin-right: 0px;
+          }
+      }/*shinjuku*/
 
       #yokohama{
         margin-left: 18px;
-    }
+
+        @include tab{
+          margin-right: 12px;
+        }
+
+        @include sp{
+          margin: 0 auto;
+        }
+
+
+    }/*yokohama*/
 
 
 
@@ -448,11 +582,35 @@ body{
 
       @include pc{
         padding-right:20px;
-        padding-left: 20px;
+        padding-left: 0px;
       }
+
+      @include sp{
+        display: block;
+        padding-right:0px;
+        padding-left: 0px;
+        width: 300px;
+      }
+
+      @include sp{
+        padding-top: 40px;
+        padding-bottom: 60px;
+      }
+
+
 
       .footer_nav{
         ul{
+
+          @include tab{
+            margin-left: 15px;
+          }
+
+          @include sp{
+            margin-top: 10px;
+          }
+
+        
           .nav_top_title{
             font-weight: bold;
             margin-bottom: 10px;
@@ -475,6 +633,7 @@ body{
               font-size: 14px;
               margin-top: 14px;
             }
+
           }/*top_title*/
 
           li{
@@ -503,9 +662,8 @@ body{
 
         }
       }
-
     }/*wrap*/
   }/*footer*/
-
 }/*body*/
 }
+

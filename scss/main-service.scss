@@ -43,7 +43,8 @@ $sp-second: 425px;  // スマホ
     line-height: 76px;
     width: 880px;
     margin: 0 auto;
-    margin-bottom: 34px;
+    margin-bottom: 40px;
+    font-weight: 900;
 }
 
 html{
@@ -51,12 +52,18 @@ html{
 body{
   font-family: 'Noto Sans JP', sans-serif;
 
+
   header{
     .header_wrap{
-      max-width: 1060px;
-      width: 100%;
+      max-width: 1500px;
+      width: 95%;
       margin: 0 auto;
       padding: 32px 0 31px ;
+
+      @include pc{
+        max-width: 1024px;
+        width: 95%;
+      }
 
       .header_block{
         display: flex;
@@ -64,12 +71,18 @@ body{
     
       .header_logo{
         display: flex;
+
         img{
           width: 70px;
         }/*img*/
 
         h1{
           font-size: 34px;
+
+          @include pc{
+            font-size: 30px;
+          }
+
           .header_logo_sub{
             display: block;
             font-size: 15px;
@@ -87,29 +100,54 @@ body{
           text-align: center;
           padding-right: 24.4px;
           border-right: 1px solid #6B7483;
+          font-size: 18px;
+
+
+          @include pc{
+            padding-right: 12px;
+            font-size: 14px;
+          }
+  
         }
 
         .header_tel{
           padding-left: 25.6px;
           margin-right: 23px;
+          font-size: 20px;
 
-          p{
+          @include pc{
+            display: none;
+          }
+
+          .area{
+            font-size: 18px;
+
             
             span{
               margin-left: 12px;
               font-family: 'Oswald', sans-serif;
               font-weight: 500;
+              font-size: 20px;
+
               img{
-                width: 13px;
-              }
-            }
-          }
+                width: 19px;
+                height: 18px;
+                margin-right: 2px;
+              }/*img*/
+            }/*span*/
+          }/*area*/
+
 
         }
 
         .btn{
           width: 218px;
           margin: 0 auto;
+
+          @include pc{
+            margin-left: 10px;
+            width: 200px;
+          }
 
           @include tab{
               width: 250px;
@@ -153,6 +191,12 @@ body{
         display: flex;
         justify-content: center;
 
+        @include pc{
+          margin: 0 auto;
+          flex-wrap: wrap;
+          width: 650px;
+        }
+
         li{
           border-right: 1px solid #222222;
           color: #222222;
@@ -170,6 +214,11 @@ body{
           }
 
         }/*li*/
+
+        li:last-child{
+          border-right: none;
+        }/*last-child*/
+
       }/*ul*/
     }/*nav*/
 
@@ -177,7 +226,7 @@ body{
   }/*header*/
 
   .mainvisual{
-    background-image: url(../img/service/mv-mainvisual.png);
+    background-image: url(../img/service/mainvisual3.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 45vw;
@@ -246,13 +295,20 @@ body{
 
 
   .content{
+    background-image: url(../img/service/background_service.png);
+    background-size: auto;
+    background-position: top;
+
+
       &_box{
           max-width: 1200px;
           width: 100%;
           margin:  0 auto;
-          padding: 94px 160px 134px 160px;
+          padding: 125px 160px 134px 160px;
           box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
           border-radius: 41px;
+          background-color: #FFFFFF;
+
   
 
           h2{
@@ -284,7 +340,7 @@ body{
           }/*checkbox*/
 
           .example{
-            margin-bottom: 109px;
+            margin-bottom: 113px;
 
             img{
               display: flex;
@@ -318,7 +374,17 @@ body{
                     font-size: 15px;
                     color: #F79E46;
                     margin-bottom: 3px;
+                    display: flex;
+                    align-items: center;
                   }/*check*/
+
+                  .check:after{
+                    content: "";
+                    height: 1px;
+                    flex-grow: 1;
+                    background-color: #F79E46;
+                    margin-left: 1rem;
+                  }
 
                   .symptom{
                     font-size: 20px;
@@ -333,6 +399,7 @@ body{
                     width: 266px;
                     letter-spacing: 0.375px;
                     line-height: 1.8;
+                    font-weight: 500;
                   }/*text*/
 
                 }/*profile*/
@@ -340,14 +407,50 @@ body{
             }/*block*/
           }/*example*/
 
+          .concept{
+            margin-bottom: 113px;
+
+            .concept_title{
+              font-size: 26px;
+              color: #F79E46;
+              text-align: center;
+              margin-bottom: 33px;
+            }/*title*/
+
+            .text{
+              letter-spacing: 0.4px;
+              line-height: 1.875;
+            }/*text*/
+
+            #concept_last_text{
+              margin-top: 30px;
+            }
+
+            .concept-img{
+              margin-bottom: 33px;
+            }
+
+
+
+          }/*concept*/
+
           .curriculum{
+
+
               .curriculum_text{
                   color: #222222;
                   line-height: 1.8;
                   letter-spacing: 0.4px;
                   margin-bottom: 40px;
-
+                  text-align: center;
               }
+
+              .curriculum_sub_title{
+                color: #F79E46;
+                font-size: 26px;
+                text-align: center;
+                margin-bottom: 28px;
+              }/*curriculum_sub_title*/
 
               .flow{
                 margin-bottom: 148px;
@@ -368,7 +471,6 @@ body{
 
                       .program_item{
                           text-align: center;
-                          margin: 0 60px;
 
 
                           h3{
@@ -396,15 +498,17 @@ body{
 
                   .program_second{
                     display: flex;
+                    justify-content: space-between;
+                    width: 784px;
+                    margin: 0 auto;
 
 
                     .program_item{
                         background-color: #FFF9E8;
                         text-align: center;
-                        margin: 0 60px;
-                        padding: 36px 79px;
+                        padding: 36px 0px;
                         border-radius: 33px;
-                        max-width: 334px;
+                        width: 334px;
 
                         h3{
                             color: #F79E46;
@@ -460,6 +564,10 @@ body{
                 margin-bottom: 30px;
               }/*consulting_flow_pic*/
 
+              .text_on_box{
+                font-size: 17px;
+              }
+
               .free_block{
                 background-color: #EAEEEF;
                 padding: 30px 36px;
@@ -468,7 +576,13 @@ body{
                 .free_title{
                   font-size: 20px;
                   font-weight: bold;
+                  margin-bottom: 16px;
                 }/*title*/
+
+                p{
+                  font-size: 16px;
+                  
+                }
 
 
 
@@ -478,17 +592,22 @@ body{
           }/*consulting_flow*/
 
           .point_wrap{
+            margin-bottom: 109px;
+
               .point_content{
                   display: flex;
+                  justify-content: space-between;
 
                   .point_circle_block{
                       .point_block{
                           display: flex;
+                          margin-bottom: 30px;
+                          align-items: center;
 
                         .circle{
                             position: relative;
-                            width: 148px;
-                            height: 148px;
+                            width: 153px;
+                            height: 153px;
                             border-radius: 50%;
                             text-align: center;
                             color: #ffffff;
@@ -505,10 +624,12 @@ body{
                               top: 50%;
                               -webkit-transform: translateY(-50%);
                               transform: translateY(-50%);
-                              text-align:center;                                 
+                              text-align:center;    
+                              font-size: 15px;                             
                             
                               span{
                                   display: block;
+                                  font-size: 18px;                             
                               }/*span*/
 
                             }/*p*/
@@ -516,8 +637,11 @@ body{
                             
                           }/*circle*/
 
-                          p{
+                          .text{
                             width: 371px;
+                            margin-left: 18px;
+                            letter-spacing: 0.4px;
+                            line-height: 1.875;              
                           }
 
 
@@ -538,6 +662,11 @@ body{
                 
                       }/*block*/
                   }/*point_circle_block*/
+
+                  .point_img{
+                    margin-right: 85px;
+                  }
+
               }/*content*/
           }/*point_wrap*/
 
@@ -566,10 +695,16 @@ body{
                 color: #FBD362;
             }/*blue_box*/
 
-            #yellow__fill{
-                background-color: #FBD362;
+            #gray__fill{
+                background-color: #EAEEEF;
                 color: #FFFFFF;
+                color: #6B7483;
             }/*yellow_fill*/
+
+            #orange__fill{
+              background-color: #F79E46;
+              color: #FFFFFF;
+          }/*yellow_fill*/
 
             img{
                 width: 42px;
@@ -582,6 +717,8 @@ body{
                 display: flex;
                 margin-bottom: 123px;
                 align-items: flex-end;
+                justify-content: space-between;
+                margin-top: 40px;
 
                 .proceed_text_block{
                     width: 605px;
@@ -635,7 +772,8 @@ body{
             .profile{
                 display: flex;
                 img{
-
+                  width: 160px;
+                  height: 158px;
                 }
 
                 .profile_list{
@@ -643,6 +781,8 @@ body{
                         list-style: none;
                         color: #F79E46;
                         font-weight: bold;
+                        font-size: 17px;
+                        line-height: 1.88;
                     }/*li*/
                 }/*list*/
             }/*profile*/
@@ -666,28 +806,53 @@ body{
   }/*content*/
 
 
-.contact_wrap{
+  .contact_wrap{
     margin-bottom: 94px;
     margin-top: 109px;
+
+    @include sp{
+      margin-bottom: 70px;
+      margin-top: 90px;
+    }
 
     .contact_title{
       font-size: 26px;
       margin-bottom: 36px;
       text-align: center;
+
+      @include tab{
+        font-size: 22px;
+      }/*tab*/
+
+      @include sp{
+        font-size: 20px;
+      }
+
+      @include sp-second(){
+        font-size: 18px;
+      }
+
     }
 
     .btn{
         width: 708px;
         margin: 0 auto;
         height: 82px;
+  
 
         @include tab{
-            width: 250px;
+          max-width: 700px;
+          width: 85%;
+          height: auto;
         }
 
         @include sp{
-            margin: 0 auto;
-            width: 99%;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        @include sp-second(){
+          width: 280px;
         }
 
         a{
@@ -703,11 +868,24 @@ body{
             line-height: 82px;
             height: 82px;
 
-            
-            @include sp{
-                padding: 20px 0px;
+            @include tab{
+              font-size: 22px;
+              height: 75px;
+              line-height: 75px;
             }
 
+            @include sp{
+              font-size: 20px;
+              height: 65px;
+              line-height: 65px;
+            }
+
+            @include sp-second(){
+              font-size: 14px;
+              height: 60px;
+              line-height:60px;
+            }
+         
         }/*a*/
     }/*btn*/
 
@@ -731,11 +909,22 @@ body{
         justify-content: center;
         margin-top: 13px;
 
+        @include sp{
+          display: block;
+          margin-right: 0px;
+          text-align: center;
+          padding-left: 0px;
+        }
+
         p{
             color: #F79E46;
             letter-spacing: 2.6px;
             font-weight: bold;
             font-size: 26px;
+
+            @include tab{
+              font-size: 20px;
+            }
 
           .number{
             margin-left: 12px;
@@ -745,10 +934,23 @@ body{
             align-items: center;
             font-size: 28px;
 
+
+            @include tab{
+              font-size: 22px;
+            }
+
             img{
               width: 18px;
               margin-left: 17.4px;
               margin-right: 4px;
+
+              @include tab{
+                margin-left: 8px;
+                margin-right: 4px;
+                width: 14px;
+                }
+
+
             }/*img*/
 
           }/*span*/
@@ -757,11 +959,30 @@ body{
 
       #shinjuku{
           margin-right: 18px;
-      }
+
+
+          @include tab{
+            margin-right: 12px;
+          }
+
+          @include sp{
+            margin-right: 0px;
+          }
+      }/*shinjuku*/
 
       #yokohama{
         margin-left: 18px;
-    }
+
+        @include tab{
+          margin-right: 12px;
+        }
+
+        @include sp{
+          margin: 0 auto;
+        }
+
+
+    }/*yokohama*/
 
 
 
@@ -782,11 +1003,35 @@ body{
 
       @include pc{
         padding-right:20px;
-        padding-left: 20px;
+        padding-left: 0px;
       }
+
+      @include sp{
+        display: block;
+        padding-right:0px;
+        padding-left: 0px;
+        width: 300px;
+      }
+
+      @include sp{
+        padding-top: 40px;
+        padding-bottom: 60px;
+      }
+
+
 
       .footer_nav{
         ul{
+
+          @include tab{
+            margin-left: 15px;
+          }
+
+          @include sp{
+            margin-top: 10px;
+          }
+
+        
           .nav_top_title{
             font-weight: bold;
             margin-bottom: 10px;
@@ -809,6 +1054,7 @@ body{
               font-size: 14px;
               margin-top: 14px;
             }
+
           }/*top_title*/
 
           li{
@@ -837,9 +1083,7 @@ body{
 
         }
       }
-
     }/*wrap*/
   }/*footer*/
-
 }/*body*/
 }
