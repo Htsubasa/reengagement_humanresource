@@ -45,6 +45,24 @@ $sp-second: 425px;  // スマホ
     margin: 0 auto;
     margin-bottom: 34px;
     margin-top: 82px;
+
+
+    @include tab{
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      font-size: 22px;
+      padding-left: 20px;
+      background-size: 100% 100%;
+    }
+
+    @include sp{
+      font-size: 18px;
+      padding-left: 10px;
+    }
+
+
+
 }
 
 html{

@@ -53,14 +53,18 @@ $sp-second: 425px;  // スマホ
 
     @include tab{
       width: 100%;
+      height: 50px;
+      line-height: 50px;
+      font-size: 22px;
+      padding-left: 20px;
+      background-size: 100% 100%;
     }
 
     @include sp{
-      height: 56px;
-      line-height: 56px;
-      font-size: 22px;
-      padding-left: 20px;
+      font-size: 18px;
+      padding-left: 10px;
     }
+
 
 
 
@@ -412,13 +416,19 @@ body{
     }/*warp*/
   }/*header*/
 
+
   .mainvisual{
     background-image: url(../img/service/mv-mainvisual.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
     width: 100%;
     position: relative;
+
+    @include sp(){
+      background-size: 100% 100%;
+      height: 60vw;
+    }
 
 
     &_wrap{
@@ -427,6 +437,12 @@ body{
       background-repeat: no-repeat;
       height: 45vw;
       width: 100%;
+
+
+      @include sp(){
+        background-size: 100% 100%;
+        height: 60vw;
+      }
 
       .mv_inner_text{
         background-color: #FFFFFF;
@@ -458,10 +474,10 @@ body{
 
 
         @include sp{
-          max-width: 280px;
+          max-width: 250px;
           width: 90%;
           padding: 25px 0px;
-          background-size: 250px 72px;
+          background-size: 220px 67px;
         }
 
 
@@ -469,14 +485,17 @@ body{
           font-weight: 900;
           font-size: 42px;
 
+          @include pc{
+            font-size: 38px;
+          }
+
           @include tab{
-            font-size: 30px;
+            font-size: 27px;
           }
 
           @include sp{
-            font-size: 24px;
+            font-size: 20px;
           }
-
         }/*inner_title*/
       }/*mv-inner-teext*/
     }
@@ -503,25 +522,22 @@ body{
   }/*introtop*/
   
 
-
   .content{
-      margin-top: 85px;
-      margin-right: 40px;
-      margin-left: 40px;
+    margin-top: 85px;
+    margin-right: 40px;
+    margin-left: 40px;
 
-      @include tab{
-        margin-right: 25px;
-        margin-left: 25px;  
-      }
+    @include tab{
+      margin-right: 25px;
+      margin-left: 25px; 
+       
+    }
 
-      @include sp{
-        margin-right: 15px;
-        margin-left: 15px;  
-      }
-
-      @include sp{
-        margin-top: 65px; 
-      }
+    @include sp{
+      margin-top: 35px; 
+      margin-right: 15px;
+      margin-left: 15px;  
+    }
 
       &_box{
           max-width: 1200px;
@@ -534,19 +550,18 @@ body{
           justify-content: space-between;
 
           @include pc{
-            padding: 94px 30px 90px 30px;
-            justify-content: center;
-          }
-
+            padding: 94px 50px 134px 50px;
+          }/*pc*/
+  
           @include tab{
-            padding: 70px 30px 70px 30px;
+            padding: 67px 30px 70px 30px;
             display: block;
-          }
-
-          @include sp{
-            padding: 54px 18px 50px 18px;
-          }
-    
+          }/*pc*/
+  
+          @include sp-second(){
+            padding: 67px 18px 70px 18px;
+          }/*pc*/
+  
           
           .archive_wrap{
             
@@ -558,11 +573,9 @@ body{
           .archive_box{
               width: 600px;
               background-color: rgb(243, 243, 243);
-              box-shadow: 0px 0px 30px rgba(0,0,0,0.08);
               height: auto;
               padding: 30px 20px;
               margin-bottom: 30px;
-              border: 1px solid rgb(151, 151, 151);
 
               @include pc{
                 width: 55vw;
@@ -571,7 +584,7 @@ body{
 
             @include tab{
               width: 100%;
-              padding: 20px 10px;
+              padding: 35px 15px;
             }
         
 
@@ -602,13 +615,17 @@ body{
             
           }/*archive_box*/
 
+          .archive_box:hover{
+            opacity: 0.7;
+              transition: .3s;          
+          }
+
         }/*archive_wrap*/
 
 
           .sidebar{
             width: 330px;
             background-color: rgb(243, 243, 243);
-            box-shadow: 0px 0px 30px rgba(0,0,0,0.08);
             padding: 37px 30px;
             height: auto;
             margin-left: 30px;
@@ -625,6 +642,10 @@ body{
 
             .recent_post_title{
                 margin-bottom: 10px;
+
+                @include sp{
+                  font-size: 16px;
+                }
             }
 
             .post_block{
@@ -662,6 +683,11 @@ body{
             .category_title{
                 margin-top: 30px;
                 margin-bottom: 10px;
+
+                @include sp{
+                  font-size: 16px;
+                }
+
             }/*category_title*/
 
                 .category{
@@ -674,6 +700,11 @@ body{
             .archive_title{
                 margin-top: 30px;
                 margin-bottom: 10px;
+
+                @include sp{
+                  font-size: 16px;
+                }
+                
             }/*archive_title*/
 
                 .archive_side_date_block{

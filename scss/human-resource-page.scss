@@ -50,18 +50,22 @@ $sp-second: 425px;  // スマホ
 
     @include tab{
       width: 100%;
-      font-size: 20px;
+      height: auto;
+      line-height: 50px;
+      font-size: 22px;
       padding-left: 20px;
+      background-size: 100% 100%;
     }
 
     @include sp{
-      height: auto;
-      padding-left: 20px;
       font-size: 18px;
-      line-height: initial;
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding-left: 10px;
     }
+
+    @include sp-second(){
+      line-height: 40px;
+    }
+
 }
 html{
 
@@ -411,11 +415,16 @@ body{
 
   .mainvisual{
     background-image: url(../img/service/mv-mainvisual.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
     width: 100%;
     position: relative;
+
+    @include sp(){
+      background-size: 100% 100%;
+      height: 60vw;
+    }
 
 
     &_wrap{
@@ -424,6 +433,12 @@ body{
       background-repeat: no-repeat;
       height: 45vw;
       width: 100%;
+
+
+      @include sp(){
+        background-size: 100% 100%;
+        height: 60vw;
+      }
 
       .mv_inner_text{
         background-color: #FFFFFF;
@@ -455,10 +470,10 @@ body{
 
 
         @include sp{
-          max-width: 280px;
+          max-width: 250px;
           width: 90%;
           padding: 25px 0px;
-          background-size: 250px 72px;
+          background-size: 220px 67px;
         }
 
 
@@ -466,18 +481,24 @@ body{
           font-weight: 900;
           font-size: 42px;
 
+          @include pc{
+            font-size: 38px;
+          }
+
           @include tab{
-            font-size: 30px;
+            font-size: 27px;
           }
 
           @include sp{
-            font-size: 24px;
+            font-size: 20px;
           }
 
         }/*inner_title*/
       }/*mv-inner-teext*/
     }
   }/*mainvisual*/
+
+
 
 
 
@@ -509,7 +530,9 @@ body{
     }
 
     @include sp{
-      margin-top: 65px; 
+      margin-top: 35px; 
+      margin-right: 15px;
+      margin-left: 15px;  
     }
 
     &_box{
@@ -526,6 +549,11 @@ body{
 
         @include tab{
           padding: 67px 30px 70px 30px;
+        }/*pc*/
+
+
+        @include sp-second(){
+          padding: 67px 18px 70px 18px;
         }/*pc*/
 
           h2{

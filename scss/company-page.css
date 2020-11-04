@@ -593,7 +593,24 @@ html body .mainvisual_wrap .mv_inner_text .top_inner_title {
 
 html body .content {
   margin-top: 85px;
+  margin-right: 40px;
+  margin-left: 40px;
   /*box*/
+}
+
+@media (max-width: 768px) {
+  html body .content {
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body .content {
+    margin-top: 35px;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 
 html body .content_box {
@@ -624,6 +641,24 @@ html body .content_box h2 {
   margin: 0 auto;
   margin-bottom: 34px;
   margin-top: 82px;
+}
+
+@media (max-width: 768px) {
+  html body .content_box h2 {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    padding-left: 20px;
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  html body .content_box h2 {
+    font-size: 18px;
+    padding-left: 10px;
+  }
 }
 
 html body .content_box .company_table {

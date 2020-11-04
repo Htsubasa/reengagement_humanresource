@@ -44,6 +44,24 @@ $sp-second: 425px;  // スマホ
     width: 100%;
     margin: 0 auto;
     margin-bottom: 34px;
+
+    @include tab{
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      font-size: 22px;
+      padding-left: 20px;
+      background-size: 100% 100%;
+    }
+
+    @include sp{
+      font-size: 18px;
+      padding-left: 10px;
+    }
+
+
+
+
   }
 
 html{
@@ -51,9 +69,7 @@ html{
 body{
   font-family: 'Noto Sans JP', sans-serif;
 
-  
   header{
-
     .header_wrap{
       max-width: 1500px;
       width: 95%;
@@ -96,6 +112,10 @@ body{
         color: #6B7483;
         font-weight: bold;
 
+        @include tab{
+          display: none;
+        }
+
         .header_contact{
           text-align: center;
           padding-right: 24.4px;
@@ -136,7 +156,6 @@ body{
               }/*img*/
             }/*span*/
           }/*area*/
-
 
         }
 
@@ -187,6 +206,23 @@ body{
     .header_nav{
       margin-top: 39px;
 
+      @include tab{
+        display: none;
+        width: 350px;
+        height: 100%;
+        color: rgb(0, 0, 0);
+        height: 100vh;
+        background-color: #ffffff;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        margin-top: 0px;
+        transform: translateX(0); /* right0まで-250px移動 */
+
+      }
+
       ul{
         display: flex;
         justify-content: center;
@@ -197,7 +233,13 @@ body{
           width: 650px;
         }
 
-        li{
+        @include tab{
+          display: inline-block;
+          padding-top: 80px;
+          padding-bottom: 80px;
+        }
+
+        .g-nav{
           border-right: 1px solid #222222;
           color: #222222;
           list-style: none;
@@ -205,12 +247,28 @@ body{
           -moz-transform: skewX(150deg);
           transform: skewX(150deg);
 
+          @include tab{
+            -webkit-transform: skewX(0deg);
+            -moz-transform: skewX(0deg);
+            transform: skewX(0deg); 
+            border-right: none;
+          }
+
           a{
             padding: 0 18px;
             display:block;
             transform: skewX(-150deg);
             font-size: 18px;
             font-weight: bold;
+            letter-spacing: 0.9px;
+
+
+          @include tab{
+            -webkit-transform: skewX(0deg);
+            -moz-transform: skewX(0deg);
+            transform: skewX(0deg); 
+          }
+
           }
 
         }/*li*/
@@ -222,12 +280,135 @@ body{
       }/*ul*/
     }/*nav*/
 
+
+  
+  .btn-gnavi{
+  
+    display: none;
+  
+    @include tab{
+      display: initial;
+        position: fixed;
+        top: 25px;
+        right: 4%;
+        width: 30px;
+        height: 24px;
+        z-index: 4;
+        cursor: pointer;
+        transition: all 400ms;
+        -webkit-transition:all 400ms;
+    }
+  
+    @include sp{
+      top: 20px;
+      right: 7%;
+    }
+  }
+  
+  
+  .btn-gnavi{
+    z-index: 1000;
+  
+    @include sp-second{
+    }
+
+    span{
+        @include tab{
+            position: absolute;
+            height: 3px;
+            background: black;
+            -webkit-transition: all 400ms;
+            transition: all 400ms;
+            right: 0;
+          }
+  
+          @include sp-second{
+            width: 45px;
+          }
+    
+  }/*span*/
+  
+    span:nth-of-type(1){
+  
+        @include tab{
+            top: 0;
+            z-index: 1000;
+            width: 40px;
+        }
+  
+        @include sp{
+          width: 17px;
+      }
+  
+    }/*span*/
+  
+    span:nth-of-type(2){
+  
+        @include tab{
+            top: 10px;
+            z-index: 1000;
+            width: 40px;
+        }
+  
+        @include sp{
+          width: 17px;
+          top: 5px;
+      }
+  
+    }/*span*/
+  
+    span:nth-of-type(3){
+        @include tab{
+            top: 20px;
+            z-index: 1000;
+            width: 40px;
+        }
+  
+        @include sp{
+          width: 17px;
+          top: 10px;
+      }
+  
+    }/*span*/
+    
+  
+  }/*btn-gnavi*/
+  
+  
+  
+ .btn-gnavi.hb-open span:nth-of-type(1) {
+    -webkit-transform: translateY(10px) rotate(-45deg);
+    transform: translateY(10px) rotate(-45deg);
+    transition: 0.5s;
+
+    @include sp{
+      -webkit-transform: translateY(5px) rotate(-45deg);
+      transform: translateY(5px) rotate(-45deg);
+    }
+
+  }
+  .btn-gnavi.hb-open span:nth-of-type(2) {
+    opacity: 0;
+  }
+  .btn-gnavi.hb-open span:nth-of-type(3) {
+    -webkit-transform:translateY(-10px) rotate(230deg);
+    transform: translateY(-10px) rotate(45deg);
+    transition: 0.5s;
+    width: 40px;
+
+    @include sp{
+      width: 17px;
+      -webkit-transform:translateY(-5px) rotate(230deg);
+      transform: translateY(-5px) rotate(45deg);  
+    }
+  }
     }/*warp*/
   }/*header*/
 
+
   .mainvisual{
     background-image: url(../img/service/mv-mainvisual.png);
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
     width: 100%;
@@ -256,9 +437,39 @@ body{
         background-image: url(../img/common/border-colorful.png);
         background-position: center;
 
+
+         @include pc{
+          padding: 50px 0px;
+          max-width: 500px;
+          background-size: 480px 130px;
+        }
+
+        @include tab{
+          max-width: 450px;
+          width: 90%;
+          padding: 30px 0px;
+          background-size: 410px 90px;
+        }
+
+        @include sp{
+          max-width: 280px;
+          width: 90%;
+          padding: 25px 0px;
+          background-size: 250px 72px;
+        }
+
         .top_inner_title{
           font-weight: 900;
           font-size: 42px;
+
+          @include tab{
+            font-size: 30px;
+          }
+
+          @include sp{
+            font-size: 24px;
+          }
+
         }/*inner_title*/
       }/*mv-inner-teext*/
     }
@@ -269,10 +480,21 @@ body{
 
 
   .content{
-      margin-top: 85px;
-      margin-right: 40px;
-      margin-left: 40px;
-  
+    margin-top: 85px;
+    margin-right: 40px;
+    margin-left: 40px;
+
+    @include tab{
+      margin-right: 25px;
+      margin-left: 25px;  
+    }
+
+    @include sp{
+      margin-top: 35px; 
+      margin-right: 15px;
+      margin-left: 15px;  
+    }
+
 
       &_box{
           max-width: 1200px;
@@ -286,6 +508,9 @@ body{
             padding: 94px 80px 90px 80px;
           }
 
+          @include tab{
+            padding: 67px 30px 70px 30px;
+          }/*pc*/
 
             h2{
                 @include h2_title;
@@ -302,7 +527,7 @@ body{
                 }
 
                 @include sp{
-                  padding: 30px 30px;
+                  padding: 15px 15px 30px 15px;
                 }
 
 
@@ -370,11 +595,8 @@ body{
 
                   @include tab{
                     margin-left: 0px;
-                  }/*tab*/
-
-                  @include sp{
                     width: 100%;
-                  }
+                  }/*tab*/
 
                     p{
                     background-color: #4abaa7;

@@ -346,6 +346,7 @@ html body header .header_wrap {
   padding: 32px 0 31px;
   /*block*/
   /*nav*/
+  /*btn-gnavi*/
 }
 
 @media (max-width: 1024px) {
@@ -404,6 +405,12 @@ html body header .header_wrap .header_block .header_info {
   color: #6B7483;
   font-weight: bold;
   /*btn*/
+}
+
+@media (max-width: 768px) {
+  html body header .header_wrap .header_block .header_info {
+    display: none;
+  }
 }
 
 html body header .header_wrap .header_block .header_info .header_contact {
@@ -508,6 +515,26 @@ html body header .header_wrap .header_nav {
   /*ul*/
 }
 
+@media (max-width: 768px) {
+  html body header .header_wrap .header_nav {
+    display: none;
+    width: 350px;
+    height: 100%;
+    color: black;
+    height: 100vh;
+    background-color: #ffffff;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    margin-top: 0px;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    /* right0まで-250px移動 */
+  }
+}
+
 html body header .header_wrap .header_nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -528,7 +555,15 @@ html body header .header_wrap .header_nav ul {
   }
 }
 
-html body header .header_wrap .header_nav ul li {
+@media (max-width: 768px) {
+  html body header .header_wrap .header_nav ul {
+    display: inline-block;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+html body header .header_wrap .header_nav ul .g-nav {
   border-right: 1px solid #222222;
   color: #222222;
   list-style: none;
@@ -536,22 +571,167 @@ html body header .header_wrap .header_nav ul li {
   transform: skewX(150deg);
 }
 
-html body header .header_wrap .header_nav ul li a {
+@media (max-width: 768px) {
+  html body header .header_wrap .header_nav ul .g-nav {
+    -webkit-transform: skewX(0deg);
+    transform: skewX(0deg);
+    border-right: none;
+  }
+}
+
+html body header .header_wrap .header_nav ul .g-nav a {
   padding: 0 18px;
   display: block;
   -webkit-transform: skewX(-150deg);
           transform: skewX(-150deg);
   font-size: 18px;
   font-weight: bold;
+  letter-spacing: 0.9px;
+}
+
+@media (max-width: 768px) {
+  html body header .header_wrap .header_nav ul .g-nav a {
+    -webkit-transform: skewX(0deg);
+    transform: skewX(0deg);
+  }
 }
 
 html body header .header_wrap .header_nav ul li:last-child {
   border-right: none;
 }
 
+html body header .header_wrap .btn-gnavi {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  html body header .header_wrap .btn-gnavi {
+    display: initial;
+    position: fixed;
+    top: 25px;
+    right: 4%;
+    width: 30px;
+    height: 24px;
+    z-index: 4;
+    cursor: pointer;
+    transition: all 400ms;
+    -webkit-transition: all 400ms;
+  }
+}
+
+@media (max-width: 560px) {
+  html body header .header_wrap .btn-gnavi {
+    top: 20px;
+    right: 7%;
+  }
+}
+
+html body header .header_wrap .btn-gnavi {
+  z-index: 1000;
+  /*span*/
+  /*span*/
+  /*span*/
+  /*span*/
+}
+
+@media (max-width: 768px) {
+  html body header .header_wrap .btn-gnavi span {
+    position: absolute;
+    height: 3px;
+    background: black;
+    -webkit-transition: all 400ms;
+    transition: all 400ms;
+    right: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  html body header .header_wrap .btn-gnavi span {
+    width: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  html body header .header_wrap .btn-gnavi span:nth-of-type(1) {
+    top: 0;
+    z-index: 1000;
+    width: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body header .header_wrap .btn-gnavi span:nth-of-type(1) {
+    width: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  html body header .header_wrap .btn-gnavi span:nth-of-type(2) {
+    top: 10px;
+    z-index: 1000;
+    width: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body header .header_wrap .btn-gnavi span:nth-of-type(2) {
+    width: 17px;
+    top: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  html body header .header_wrap .btn-gnavi span:nth-of-type(3) {
+    top: 20px;
+    z-index: 1000;
+    width: 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body header .header_wrap .btn-gnavi span:nth-of-type(3) {
+    width: 17px;
+    top: 10px;
+  }
+}
+
+html body header .header_wrap .btn-gnavi.hb-open span:nth-of-type(1) {
+  -webkit-transform: translateY(10px) rotate(-45deg);
+  transform: translateY(10px) rotate(-45deg);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@media (max-width: 560px) {
+  html body header .header_wrap .btn-gnavi.hb-open span:nth-of-type(1) {
+    -webkit-transform: translateY(5px) rotate(-45deg);
+    transform: translateY(5px) rotate(-45deg);
+  }
+}
+
+html body header .header_wrap .btn-gnavi.hb-open span:nth-of-type(2) {
+  opacity: 0;
+}
+
+html body header .header_wrap .btn-gnavi.hb-open span:nth-of-type(3) {
+  -webkit-transform: translateY(-10px) rotate(230deg);
+  transform: translateY(-10px) rotate(45deg);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 40px;
+}
+
+@media (max-width: 560px) {
+  html body header .header_wrap .btn-gnavi.hb-open span:nth-of-type(3) {
+    width: 17px;
+    -webkit-transform: translateY(-5px) rotate(230deg);
+    transform: translateY(-5px) rotate(45deg);
+  }
+}
+
 html body .mainvisual {
   background-image: url(../img/service/mv-mainvisual.png);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   height: 45vw;
   width: 100%;
@@ -584,9 +764,47 @@ html body .mainvisual_wrap .mv_inner_text {
   /*inner_title*/
 }
 
+@media (max-width: 1024px) {
+  html body .mainvisual_wrap .mv_inner_text {
+    padding: 50px 0px;
+    max-width: 500px;
+    background-size: 480px 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .mainvisual_wrap .mv_inner_text {
+    max-width: 450px;
+    width: 90%;
+    padding: 30px 0px;
+    background-size: 410px 90px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body .mainvisual_wrap .mv_inner_text {
+    max-width: 280px;
+    width: 90%;
+    padding: 25px 0px;
+    background-size: 250px 72px;
+  }
+}
+
 html body .mainvisual_wrap .mv_inner_text .top_inner_title {
   font-weight: 900;
   font-size: 42px;
+}
+
+@media (max-width: 768px) {
+  html body .mainvisual_wrap .mv_inner_text .top_inner_title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body .mainvisual_wrap .mv_inner_text .top_inner_title {
+    font-size: 24px;
+  }
 }
 
 html body .content {
@@ -594,6 +812,21 @@ html body .content {
   margin-right: 40px;
   margin-left: 40px;
   /*box*/
+}
+
+@media (max-width: 768px) {
+  html body .content {
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+}
+
+@media (max-width: 560px) {
+  html body .content {
+    margin-top: 35px;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 
 html body .content_box {
@@ -604,6 +837,7 @@ html body .content_box {
   -webkit-box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.16);
   border-radius: 41px;
+  /*pc*/
   /*h2*/
   /*reservation_box*/
 }
@@ -611,6 +845,12 @@ html body .content_box {
 @media (max-width: 1024px) {
   html body .content_box {
     padding: 94px 80px 90px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  html body .content_box {
+    padding: 67px 30px 70px 30px;
   }
 }
 
@@ -629,6 +869,24 @@ html body .content_box h2 {
   margin-bottom: 34px;
 }
 
+@media (max-width: 768px) {
+  html body .content_box h2 {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    padding-left: 20px;
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  html body .content_box h2 {
+    font-size: 18px;
+    padding-left: 10px;
+  }
+}
+
 html body .content_box .reservation_box {
   margin-bottom: 25px;
   padding: 20px 30px;
@@ -644,7 +902,7 @@ html body .content_box .reservation_box {
 
 @media (max-width: 560px) {
   html body .content_box .reservation_box {
-    padding: 30px 30px;
+    padding: 15px 15px 30px 15px;
   }
 }
 
@@ -729,11 +987,6 @@ html body .content_box .reservation_box .link_block .btn {
 @media (max-width: 768px) {
   html body .content_box .reservation_box .link_block .btn {
     margin-left: 0px;
-  }
-}
-
-@media (max-width: 560px) {
-  html body .content_box .reservation_box .link_block .btn {
     width: 100%;
   }
 }

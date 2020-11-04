@@ -867,7 +867,9 @@ html body .content {
 
 @media (max-width: 560px) {
   html body .content {
-    margin-top: 65px;
+    margin-top: 35px;
+    margin-right: 15px;
+    margin-left: 15px;
   }
 }
 
@@ -918,15 +920,18 @@ html body .content_box h2 {
 @media (max-width: 768px) {
   html body .content_box h2 {
     width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 22px;
+    padding-left: 20px;
+    background-size: 100% 100%;
   }
 }
 
 @media (max-width: 560px) {
   html body .content_box h2 {
-    height: 56px;
-    line-height: 56px;
-    font-size: 22px;
-    padding-left: 20px;
+    font-size: 18px;
+    padding-left: 10px;
   }
 }
 
