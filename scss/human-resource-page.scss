@@ -58,12 +58,11 @@ $sp-second: 425px;  // スマホ
     }
 
     @include sp{
-      font-size: 18px;
-      padding-left: 10px;
-    }
-
-    @include sp-second(){
-      line-height: 40px;
+      text-align: center;
+      margin-bottom: 20px;
+      padding-left: 0px;
+      height: 107px;
+      line-height: 107px;
     }
 
 }
@@ -86,6 +85,9 @@ body{
         width: 95%;
       }
 
+      @include sp{
+        padding: 14px 0 14px ;      }
+
       .header_block{
         display: flex;
         justify-content: space-between;
@@ -104,9 +106,17 @@ body{
             font-size: 30px;
           }
 
+          @include sp{
+            font-size: 18px;
+          }
+
           .header_logo_sub{
             display: block;
             font-size: 15px;
+
+            @include sp{
+              font-size: 10px;
+            }
           }/*logo_sub*/
         }/*h1*/
       }/*logo*/
@@ -294,7 +304,7 @@ body{
     @include tab{
       display: initial;
         position: fixed;
-        top: 25px;
+        top: 50px;
         right: 4%;
         width: 30px;
         height: 24px;
@@ -305,7 +315,7 @@ body{
     }
   
     @include sp{
-      top: 20px;
+      top: 30px;
       right: 7%;
     }
   }
@@ -321,7 +331,6 @@ body{
         @include tab{
             position: absolute;
             height: 3px;
-            background: black;
             -webkit-transition: all 400ms;
             transition: all 400ms;
             right: 0;
@@ -339,10 +348,11 @@ body{
             top: 0;
             z-index: 1000;
             width: 40px;
+            background-color: #ED974C;
         }
   
         @include sp{
-          width: 17px;
+          width: 21px;
       }
   
     }/*span*/
@@ -353,11 +363,12 @@ body{
             top: 10px;
             z-index: 1000;
             width: 40px;
+            background-color: #F7CD68;
         }
   
         @include sp{
-          width: 17px;
-          top: 5px;
+          width: 21px;
+          top: 7px;
       }
   
     }/*span*/
@@ -367,11 +378,12 @@ body{
             top: 20px;
             z-index: 1000;
             width: 40px;
+            background-color: #71C1C0;
         }
   
         @include sp{
-          width: 17px;
-          top: 10px;
+          width: 21px;
+          top: 14px;
       }
   
     }/*span*/
@@ -407,14 +419,14 @@ body{
       transform: translateY(-5px) rotate(45deg);  
     }
   }
-
-
-
     }/*warp*/
   }/*header*/
 
+
+
+
   .mainvisual{
-    background-image: url(../img/service/mv-mainvisual.png);
+    background-image: url(../img/price/mv.png);
     background-size: cover;
     background-repeat: no-repeat;
     height: 45vw;
@@ -423,13 +435,14 @@ body{
 
     @include sp(){
       background-size: 100% 100%;
-      height: 60vw;
+      height: 395px;
+      background-image: url(../img/common/mainvisual-2_sp.png);
     }
 
 
     &_wrap{
       background-image: url(../img/service/mv-background.png);
-      background-size: contain;  
+      background-size: cover;  
       background-repeat: no-repeat;
       height: 45vw;
       width: 100%;
@@ -437,7 +450,8 @@ body{
 
       @include sp(){
         background-size: 100% 100%;
-        height: 60vw;
+        height: 395px;
+        background-image: url(../img/common/mv-background_sp.png);
       }
 
       .mv_inner_text{
@@ -470,10 +484,10 @@ body{
 
 
         @include sp{
-          max-width: 250px;
+          max-width: 306px;
           width: 90%;
-          padding: 25px 0px;
-          background-size: 220px 67px;
+          padding: 75px 0px 79px;
+          background-size: 240px 170px;
         }
 
 
@@ -490,15 +504,12 @@ body{
           }
 
           @include sp{
-            font-size: 20px;
+            font-size: 24px;
           }
-
         }/*inner_title*/
       }/*mv-inner-teext*/
     }
   }/*mainvisual*/
-
-
 
 
 
@@ -603,6 +614,8 @@ body{
   }/*content*/
 
 
+
+
   .contact_wrap{
     margin-bottom: 94px;
     margin-top: 109px;
@@ -610,6 +623,7 @@ body{
     @include sp{
       margin-bottom: 70px;
       margin-top: 90px;
+      text-align: center;
     }
 
     .contact_title{
@@ -622,14 +636,26 @@ body{
       }/*tab*/
 
       @include sp{
-        font-size: 20px;
+        display: none;
       }
 
-      @include sp-second(){
-        font-size: 18px;
+
+    }
+
+    .contact_title_sp{
+      display: none;
+
+      @include sp{
+        display: block;
+        font-size: 20px;
+        margin-bottom: 16px;
+        width: 100%;
+        line-height: 1.6;
+        font-weight: 500;
       }
 
     }
+
 
     .btn{
         width: 708px;
@@ -644,12 +670,11 @@ body{
         }
 
         @include sp{
-          width: 80%;
+          width: 92.5%;
           margin: 0 auto;
         }
 
         @include sp-second(){
-          width: 280px;
         }
 
         a{
@@ -673,15 +698,11 @@ body{
 
             @include sp{
               font-size: 20px;
-              height: 65px;
-              line-height: 65px;
+              height: 67px;
+              line-height: 67px;
             }
 
-            @include sp-second(){
-              font-size: 14px;
-              height: 60px;
-              line-height:60px;
-            }
+      
          
         }/*a*/
     }/*btn*/
@@ -697,6 +718,12 @@ body{
         font-weight: bold;
         font-size: 18px;
         letter-spacing: 0.45px;
+
+        @include sp{
+          font-size: 16px;
+          margin-top: 18px;
+          margin-bottom: 21px;
+        }
     }
 
     .contact_tel{
@@ -720,7 +747,7 @@ body{
             font-size: 26px;
 
             @include tab{
-              font-size: 20px;
+              font-size: 26px;
             }
 
           .number{
@@ -734,6 +761,9 @@ body{
 
             @include tab{
               font-size: 22px;
+            }
+            @include sp{
+              font-size: 28px;
             }
 
             img{
